@@ -6,8 +6,10 @@ const findSeller = function breadthFirstSearch(graph, pointer, firstPerson) {
   let searchQueue = [];
   const provenPeople = [];
   searchQueue.push(firstPerson);
+
   while (searchQueue.length) {
     const checkedPerson = searchQueue.shift();
+
     if (provenPeople.indexOf(checkedPerson) === -1) {
       if (isPersonSeller(checkedPerson, pointer)) {
         return checkedPerson;
@@ -17,6 +19,7 @@ const findSeller = function breadthFirstSearch(graph, pointer, firstPerson) {
       searchQueue = [...searchQueue, ...checkedPersonFriends];
     }
   }
+
   return false;
 };
 
